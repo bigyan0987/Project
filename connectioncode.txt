@@ -23,25 +23,28 @@ namespace DatabaseConnection
                 con.Open();
                 // Executing the SQL query  
                 // int a = cm.ExecuteNonQuery();
-                using (SqlCommand command = new SqlCommand("SELECT  * FROM tbl_student",con))
-                {
-                    //
-                    // Instance methods can be used on the SqlCommand.
-                    // ... These read data.
-                    //
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            for (int i = 0; i < reader.FieldCount; i++)
-                            {
-                                Console.WriteLine(reader.GetValue(i));
-                            }
-                            Console.WriteLine();
-                        }
-                    }
-                }
-
+                /* using (SqlCommand command = new SqlCommand("SELECT  * FROM tbl_student",con))
+                 {
+                     //
+                     // Instance methods can be used on the SqlCommand.
+                     // ... These read data.
+                     //
+                     using (SqlDataReader reader = command.ExecuteReader())
+                     {
+                         while (reader.Read())
+                         {
+                             for (int i = 0; i < reader.FieldCount; i++)
+                             {
+                                 Console.WriteLine(reader.GetValue(i));
+                             }
+                             Console.WriteLine();
+                         }
+                     }
+                 }
+                 */
+                /* SqlCommand cm = new SqlCommand("CREATE TABLE tbl_teacher(id INT, firstname VARCHAR(20));", con);*/
+/*                    SqlCommand cm = new SqlCommand("DROP TABLE tbl_teacher;", con); 
+*/                 /*cm.ExecuteNonQuery();*/
                 // Displaying a message  
                 Console.WriteLine("Done");
                 
