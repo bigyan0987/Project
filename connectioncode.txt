@@ -1,0 +1,61 @@
+using System;
+using System.Data.SqlClient;
+
+namespace DatabaseConnection
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            new Program().CreateTable();
+        }
+        public void CreateTable()
+        {
+            SqlConnection con = null;
+            try
+            {
+                // Creating Connection  
+                con = new SqlConnection("data source=.; database=Student; integrated security=SSPI");
+                // writing sql query  
+               // SqlCommand cm = new SqlCommand("SELECT id FROM tbl_student", con);
+                /* SqlCommand cm = new SqlCommand("INSERT INTO tbl_student(id, Firstname) VALUES(101, 'Amrit')", con);*/
+                // Opening Connection  
+                con.Open();
+                // Executing the SQL query  
+                // int a = cm.ExecuteNonQuery();
+                using (SqlCommand command = new SqlCommand("SELECT  * FROM tbl_student",con))
+                {
+                    //
+                    // Instance methods can be used on the SqlCommand.
+                    // ... These read data.
+                    //
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            for (int i = 0; i < reader.FieldCount; i++)
+                            {
+                                Console.WriteLine(reader.GetValue(i));
+                            }
+                            Console.WriteLine();
+                        }
+                    }
+                }
+
+                // Displaying a message  
+                Console.WriteLine("Done");
+                
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("OOPs, something went wrong." + e);
+            }
+            // Closing the connection  
+            finally
+            {
+                con.Close();
+            }
+        }
+    }
+}
