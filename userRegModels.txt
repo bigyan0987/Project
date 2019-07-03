@@ -1,0 +1,49 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Web;
+
+namespace newBillingProject.Models
+{
+    public class RegularExpressionAttribute
+    {
+        [Required(ErrorMessage = "First Name is Required.")]
+        public string firstName { get; set; }
+
+        public string middleName { get; set; }
+
+        [Required(ErrorMessage ="Last Name is Required.")]
+        public string laseName { get; set; }
+
+        [Required(ErrorMessage ="Address is Required.")]
+        public string Address { get; set; }
+
+        [Required(ErrorMessage ="Please Enter City.")]
+        public string City { get; set; }
+
+        [Required(ErrorMessage ="Enter you State.")]
+        public string state { get; set; }
+
+        [Required(ErrorMessage ="Enter your Zip Code.")]
+        public int postalCode { get; set; }
+
+        [Required(ErrorMessage ="Choose your Country.")]
+        public string country { get; set; }
+
+        [Required(ErrorMessage ="Select your Country Code.")]
+        public string countryCode { get; set; }
+
+        [Required(ErrorMessage ="Enter your Number.")]
+        public int number { get; set; }
+
+        [Required(ErrorMessage = "Required")]
+        [StringLength(50, ErrorMessage = "Max 50 characters")]
+      //  [RegularExpression(@"\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b")]
+        public string email { get; set; }
+        [Required(ErrorMessage ="Choose your Birth Date.")]
+        public DateTime Birthdate { get; set; }
+
+
+    }
+}
